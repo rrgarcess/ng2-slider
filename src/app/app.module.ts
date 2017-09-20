@@ -19,9 +19,6 @@ import {Ng2WebpackComponent} from "./components/ng2-webpack/ng2-webpack.componen
 import {DndModule} from "ng2-dnd";
 import {Ng2SliderComponent} from "./components/ng2-slider/ng2-slider.component";
 import {FormsModule} from "@angular/forms";
-import {IonRangeSliderModule} from "ng2-ion-range-slider";
-
-
 
 
 @NgModule({
@@ -45,7 +42,6 @@ import {IonRangeSliderModule} from "ng2-ion-range-slider";
   imports: [
     BrowserModule,
     FormsModule,
-    IonRangeSliderModule,
     APP_ROUTING,
     DndModule.forRoot()
   ],

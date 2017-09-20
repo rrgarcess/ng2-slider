@@ -1,0 +1,24 @@
+<div class="row">
+  <section class="range-slider">
+    <div class="bobble-slider" [style.left.px]="left1">
+      {{ value1 }}
+    </div>
+    <input #input1 id="value1" type="range" [min]="min" [max]="max" [value]="value1" class="slider"
+           (input)="onInput(input1)"  (mousedown)="setOldValue($event.target); clikDown = true"
+           (change)="changeData($event.target)" >
+
+
+    <div class="bobble-slider" [style.left.px]="left2">
+      {{ value2 }}
+    </div>
+    <input #input2 id="value2" type="range" [min]="min" [max]="max" [value]="value2" class="slider"
+           (input)="onInput(input2)" (mousedown)="setOldValue($event.target); clikDown = true"
+           (change)="changeData($event.target)">
+
+  </section>
+</div>
+
+<div class="row">
+  <div class="col-6 text-left">value: {{ min }}</div>
+  <div class="col-6 text-right">value: {{ max }}</div>
+</div>

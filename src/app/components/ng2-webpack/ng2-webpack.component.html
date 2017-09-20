@@ -1,0 +1,108 @@
+<!--<h4>Simple Drag-and-Drop operations with no code</h4>
+<div class="row">
+
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-header">Available to drag</div>
+      <div class="card-body">
+        <div class="panel panel-default" dnd-draggable [dragEnabled]="true">
+          <div class="panel-body">
+            <div>Drag Me</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card">
+      <div dnd-droppable (onDropSuccess)="simpleDrop=$event">
+        <div class="card-header">Place to drop</div>
+        <div class="card-body">
+          <div *ngIf="simpleDrop">Item was dropped here</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+<!--------------------------------------------------------------------------------------------------------->
+<!--<h4>Simple sortable With Drop into recycle bin</h4>
+<div class="row">
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-header">
+        Favorite drinks
+      </div>
+      <div class="card-body" dnd-sortable-container [sortableData]="listOne" [dropZones]="['delete-dropZone']">
+        <ul class="list-group">
+          <li *ngFor="let item of listOne; let i = index" class="list-group-item" dnd-sortable [sortableIndex]="i">{{ item }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card ">
+      <div class="card-header">Recycle bin: Drag into me to delete it</div>
+
+      <div class="card-body" dnd-droppable dnd-sortable-container [sortableData]="listRecycled" [dropZones]="['delete-dropZone']" >
+        <ul class="list-group">
+          <li *ngFor="let item of listRecycled; let i = index" class="list-group-item" dnd-sortable [sortableIndex]="i">
+            <b>Recycled:</b> <span>{{ item }} </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>-->
+<!--------------------------------------------------------------------------------------------------------->
+<!--h4>Transfer custom data in Drag-and-Drop</h4>
+<div-- class="row">
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-header">Available to drag</div>
+      <div class="card-body">
+        <div class="panel panel-default" dnd-draggable [dragEnabled]="true" [dragData]="transferData">
+          <div class="panel-body">
+            <div>Drag Me</div>
+            <div>{{transferData | json}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div dnd-droppable class="card" (onDropSuccess)="transferDataSuccess($event)">
+      <div class="card-header">Place to drop (Items:{{receivedData.length}})</div>
+      <div class="card-body">
+        <div [hidden]="!receivedData.length > 0" *ngFor="let data of receivedData">{{data | json}}</div>
+      </div>
+    </div>
+  </div>
+</div-->
+
+
+<!--------------------------------------------------------------------------------------------------------->
+<!--<h4>Custom card Drag and Drop</h4>
+<br>
+
+<div class="card-group">
+  <div class="col-4 col-sm-12 col-md-6 col-lg-4 " *ngFor="let item of elements; let i = index">
+    <div>
+      <div class="card card-hover" dnd-draggable [dragEnabled]="true" [dragData]="item" >
+        <img class="card-img-top" [src]="item.img">
+        <div class="card-body" dnd-droppable (onDropSuccess)="dropSuccess($event, i)">
+          <h4 class="card-title">{{ item.title }}</h4>
+          <p class="card-text">{{ item.description }}</p>
+          <p class="card-text"><small class="text-muted">{{ item.updated }}</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>-->
+<h4>Slider Component</h4>
+
+<ng2-slider [min]="0" [max]="1000" [value1]="200" [value2]="500"></ng2-slider>
+
+

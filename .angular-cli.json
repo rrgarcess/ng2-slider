@@ -24,9 +24,7 @@
       ],
       "scripts": [
         "../node_modules/jspdf/dist/jspdf.min.js",
-        "assets/canvg.js",
-        "../node_modules/ion-rangeslider/css/ion.rangeSlider.css",
-        "../node_modules/ion-rangeslider/css/ion.rangeSlider.skinFlat.css"
+        "assets/canvg.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
