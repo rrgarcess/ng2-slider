@@ -108,11 +108,13 @@ export class Ng2SliderComponent implements OnInit, AfterViewInit{
     let width = target.getBoundingClientRect().width;
     let left = percent * width;
 
+    let decrease = percent >= 50 ? 10 : 30;
+
     if (target.id == 'value1'){
-      this.left1 = left;
+      this.left1 = left - (percent * decrease);
     }
     else if (target.id == 'value2'){
-      this.left2 = left;
+      this.left2 = left - (percent * decrease);
     }
   }
 }
