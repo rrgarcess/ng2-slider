@@ -19,6 +19,7 @@ import {Ng2WebpackComponent} from "./components/ng2-webpack/ng2-webpack.componen
 import {DndModule} from "ng2-dnd";
 import {Ng2SliderComponent} from "./components/ng2-slider/ng2-slider.component";
 import {FormsModule} from "@angular/forms";
+import {Ng2SliderService} from "./components/ng2-slider/ng2-slider.service";
 
 
 @NgModule({
@@ -45,7 +46,7 @@ import {FormsModule} from "@angular/forms";
     APP_ROUTING,
     DndModule.forRoot()
   ],
-  providers: [],
+  providers: [Ng2SliderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

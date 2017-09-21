@@ -2,6 +2,7 @@ import {
   Component, ElementRef, HostListener, Input, OnInit, ViewChild,
   AfterViewInit
 } from '@angular/core';
+import {Ng2SliderService} from "./ng2-slider.service";
 
 @Component({
   selector: 'ng2-slider',
@@ -11,7 +12,6 @@ import {
 export class Ng2SliderComponent implements OnInit, AfterViewInit{
 
   value: number = 2;
-  oldMaxValue1: number = 0;
 
   @Input('max') max: number;
 
@@ -28,11 +28,11 @@ export class Ng2SliderComponent implements OnInit, AfterViewInit{
   left2 = 0;
 
 
-  constructor() {
+  constructor(private sliderService: Ng2SliderService) {
   }
 
   ngOnInit() {
-    this.oldMaxValue1 = 0;
+
   }
 
   ngAfterViewInit(): void {
@@ -40,6 +40,11 @@ export class Ng2SliderComponent implements OnInit, AfterViewInit{
       this.setThumbPosition(this.input1.nativeElement);
       this.setThumbPosition(this.input2.nativeElement);
     }, 10);
+
+    this.sliderService.min = this.min;
+    this.sliderService.max = this.max;
+    this.sliderService.value1 = this.value1;
+    this.sliderService.value2 = this.value2;
   }
 
   @HostListener('window:resize', ['$event'])
@@ -61,23 +66,18 @@ export class Ng2SliderComponent implements OnInit, AfterViewInit{
       default:
         break;
     }
-    // console.log('value1', this.value1);
-    // console.log('value2', this.value2);
-    // this.calcularRangos(target);
+
+    //setter values
+    this.sliderService.value1 = this.value1;
+    this.sliderService.value2 = this.value2;
   }
 
-  calcularRangos(target){
-    let max = target.value;
+  calcularRangos(target)  {
 
-    if ((this.max - 5) < max){
-      this.plus();
-    } else if(this.oldMaxValue1 > max){
-      this.minus();
-    }
   }
 
   onInput(target){
-    console.log('input');
+    //console.log('input');
     if(target.id == 'value1'){
       this.value1 = target.value;
     } else if(target.id == 'value2') {
@@ -89,7 +89,7 @@ export class Ng2SliderComponent implements OnInit, AfterViewInit{
   }
 
   setOldValue(target){
-    this.oldMaxValue1 = (target.value > this.value2) ? target.value : this.value2;
+
   }
 
   plus(){
@@ -116,5 +116,10 @@ export class Ng2SliderComponent implements OnInit, AfterViewInit{
     else if (target.id == 'value2'){
       this.left2 = left - (percent * decrease);
     }
+
+    //setter values
+    this.sliderService.value1 = this.value1;
+    this.sliderService.value2 = this.value2;
   }
+
 }

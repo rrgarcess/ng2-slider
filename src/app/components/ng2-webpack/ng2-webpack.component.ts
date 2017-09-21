@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Ng2SliderService} from "../ng2-slider/ng2-slider.service";
 
 @Component({
   selector: 'app-ng2-webpack',
@@ -51,13 +52,7 @@ export class Ng2WebpackComponent implements OnInit {
     }
   ];
 
-  constructor() {
-    console.log('List One');
-    console.log(this.listOne);
-
-
-
-
+  constructor(private sliderService: Ng2SliderService) {
 
   }
 
@@ -77,18 +72,8 @@ export class Ng2WebpackComponent implements OnInit {
 
   }
 
-  myOnUpdate(event){
-    console.log('myOnUpdate');
-    console.log(event);
-  }
-
-  myOnChange(event){
-    console.log('myOnChange');
-    console.log(event);
-  }
-  myOnFinish(event){
-    console.log('myOnFinish');
-    console.log(event);
+  show(){
+    console.log(this.sliderService.toString());
   }
 
 }

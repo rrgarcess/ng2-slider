@@ -52,21 +52,6 @@ export class HomeComponent implements OnInit {
   }
 
   download(){
-    let doc = new jsPDF();
-
-    let settings = {
-      pagesplit: true
-    };
-
-    html2canvas(this.elemet.nativeElement, {
-      onrendered: (canvas) => {
-        let img = canvas.toDataURL();
-        console.log(canvas);
-        doc.addHTML(img, ()=>{console.log('something')});
-        //document.body.appendChild(img);
-        doc.save('test.pdf');
-      }
-    });
 
     /*html2canvas(this.elemet.nativeElement).then(
       (canvas) => {
